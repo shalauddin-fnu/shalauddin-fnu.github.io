@@ -74,11 +74,7 @@
     .brand {
       font-size: 1.2rem;
       font-weight: 900;
-      letter-spacing: 0.05em;
-    }
-
-    .brand span {
-      color: var(--cyan);
+      letter-spacing: 0.03em;
     }
 
     .nav-links {
@@ -116,8 +112,6 @@
 
     .portrait-card {
       position: relative;
-      display: grid;
-      place-items: center;
       width: 290px;
       height: 350px;
       overflow: hidden;
@@ -129,35 +123,12 @@
       box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
     }
 
-    .portrait-placeholder {
-      display: grid;
-      place-items: center;
-      width: 180px;
-      height: 180px;
-      border: 2px solid rgba(255, 255, 255, 0.28);
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--cyan), var(--violet));
-      color: var(--navy);
-      font-size: 3rem;
-      font-weight: 900;
-      box-shadow: 0 0 55px rgba(53, 217, 255, 0.25);
-    }
-
-    .photo-note {
-      position: absolute;
-      bottom: 24px;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 14px;
-      color: var(--cyan);
-      font-size: 0.78rem;
-      font-weight: 900;
-      letter-spacing: 0.17em;
-      text-transform: uppercase;
+    .portrait-photo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
     }
 
     h1 {
@@ -166,16 +137,28 @@
       letter-spacing: -0.06em;
     }
 
-    .title {
-      max-width: 750px;
-      margin-top: 18px;
+    .professional-details {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 22px;
       color: var(--muted);
-      font-size: 1.12rem;
+      font-size: 1.08rem;
+      line-height: 1.55;
+    }
+
+    .professional-details strong {
+      color: var(--white);
+      font-size: 1.16rem;
+    }
+
+    .professional-details em {
+      color: var(--cyan);
     }
 
     .about-text {
       max-width: 800px;
-      margin-top: 22px;
+      margin-top: 24px;
       color: #e2ebf8;
       font-size: 1rem;
     }
@@ -298,7 +281,10 @@
         text-align: center;
       }
 
-      .title,
+      .professional-details {
+        align-items: center;
+      }
+
       .about-text {
         margin-right: auto;
         margin-left: auto;
@@ -327,7 +313,7 @@
 <body>
   <nav>
     <div class="container nav-inner">
-      <a class="brand" href="index.html">SHALAUDDIN<span>.</span></a>
+      <a class="brand" href="index.html">shalauddin</a>
 
       <div class="nav-links">
         <a href="about.html">About</a>
@@ -351,19 +337,24 @@
     <div class="container">
       <section class="profile-layout">
         <div class="portrait-card">
-          <div class="portrait-placeholder">S</div>
-          <p class="photo-note">Professional photograph coming soon</p>
+          <img
+            class="portrait-photo"
+            src="Profile.jpg"
+            alt="Portrait of Shalauddin"
+          >
         </div>
 
         <div class="profile-content">
-          <span class="eyebrow">Atomic, Molecular &amp; Optical Physics</span>
-
           <h1>Shalauddin</h1>
 
-          <p class="title">
-            Graduate Research Assistant · James R. Macdonald Laboratory ·
-            Kansas State University
-          </p>
+          <div class="professional-details">
+            <strong>Graduate Research Assistant</strong>
+            <em>Atomic, Molecular and Optical Physics</em>
+            <span>
+              James R. Macdonald Laboratory, Department of Physics,
+              Kansas State University
+            </span>
+          </div>
 
           <p class="about-text">
             I am currently a Graduate Research Assistant at the James R.
@@ -375,8 +366,14 @@
           </p>
 
           <div class="buttons">
-            <a class="button button-primary" href="about.html">More about me</a>
-            <a class="button" href="mailto:shalauddin@ksu.edu">Email me</a>
+            <a
+              class="button button-primary"
+              href="https://www.phys.ksu.edu/about/people/graduate/shalauddin.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              More about me
+            </a>
           </div>
         </div>
       </section>
@@ -384,7 +381,9 @@
       <section class="research-strip">
         <div class="research-heading">
           <h2>Research at a glance</h2>
-          <a class="learn-more" href="research.html">View detailed research →</a>
+          <a class="learn-more" href="research.html">
+            View detailed research &rarr;
+          </a>
         </div>
 
         <div class="research-items">
@@ -409,7 +408,7 @@
 
   <footer>
     <div class="container footer-inner">
-      <span>© 2026 Shalauddin · Kansas State University</span>
+      <span>&copy; 2026 Shalauddin &middot; Kansas State University</span>
       <a href="mailto:shalauddin@ksu.edu">shalauddin@ksu.edu</a>
     </div>
   </footer>
