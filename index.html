@@ -250,11 +250,12 @@
 
     .research-items {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px 30px;
     }
 
     .research-item {
+      min-height: 85px;
       padding-left: 16px;
       border-left: 3px solid var(--cyan);
     }
@@ -265,6 +266,10 @@
 
     .research-item:nth-child(3) {
       border-color: var(--gold);
+    }
+
+    .research-item:nth-child(4) {
+      border-color: #ff7aa2;
     }
 
     .research-item h3 {
@@ -463,18 +468,33 @@
 
         <div class="research-items">
           <article class="research-item">
-            <h3>Coulomb Explosion Imaging</h3>
-            <p>Momentum-resolved imaging of molecular fragmentation.</p>
+            <h3>Molecular Dynamics &amp; Coulomb Explosion</h3>
+            <p>
+              Theory and imaging of ultrafast molecular fragmentation.
+            </p>
           </article>
 
           <article class="research-item">
-            <h3>Femtosecond Laser Science</h3>
-            <p>Studying molecular dynamics at ultrafast timescales.</p>
+            <h3>Ultrafast Lasers &amp; Experimental Methods</h3>
+            <p>
+              Femtosecond lasers, pump-probe methods, and experimental optics.
+            </p>
           </article>
 
           <article class="research-item">
-            <h3>COLTRIMS</h3>
-            <p>Coincidence detection of charged-particle momenta.</p>
+            <h3>COLTRIMS &amp; Data Acquisition</h3>
+            <p>
+              Coincidence spectroscopy, detectors, and experimental
+              instrumentation.
+            </p>
+          </article>
+
+          <article class="research-item">
+            <h3>Data Analysis &amp; Simulation</h3>
+            <p>
+              Scientific programming, momentum reconstruction, and
+              computational modeling.
+            </p>
           </article>
         </div>
       </section>
