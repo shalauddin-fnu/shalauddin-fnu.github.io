@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Learning notes and research perspectives on molecular dynamics, fragmentation, and Coulomb explosion imaging."
+    content="Research notes and learning articles about molecular dynamics, molecular fragmentation, and Coulomb explosion imaging."
   >
 
   <style>
@@ -16,7 +16,6 @@
       --navy: #07152f;
       --cyan: #35d9ff;
       --violet: #8b7cff;
-      --gold: #ffc857;
       --white: #f7fbff;
       --muted: #b8c7df;
       --border: rgba(255, 255, 255, 0.14);
@@ -45,7 +44,7 @@
           transparent 32%
         ),
         var(--navy);
-      line-height: 1.65;
+      line-height: 1.7;
     }
 
     a {
@@ -54,7 +53,7 @@
     }
 
     .container {
-      width: min(1080px, 90%);
+      width: min(1000px, 90%);
       margin: 0 auto;
     }
 
@@ -68,11 +67,13 @@
     }
 
     .nav-inner {
+      width: min(1120px, 90%);
       min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 24px;
+      margin: 0 auto;
     }
 
     .brand {
@@ -116,152 +117,145 @@
     }
 
     main {
-      padding: 70px 0 60px;
+      min-height: calc(100vh - 145px);
+      padding: 65px 0 70px;
     }
 
-    .breadcrumb {
+    .home-link {
       display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
       color: var(--cyan);
       font-size: 0.88rem;
-      font-weight: 700;
-    }
-
-    .hero {
-      max-width: 900px;
+      font-weight: 800;
     }
 
     .eyebrow {
       margin-bottom: 12px;
       color: var(--cyan);
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 900;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
     }
 
     h1 {
-      max-width: 900px;
-      font-size: clamp(2.7rem, 6vw, 5rem);
-      line-height: 1.05;
-      letter-spacing: -0.045em;
+      max-width: 850px;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
     }
 
     .intro {
       max-width: 850px;
       margin-top: 24px;
       color: #dce7f7;
-      font-size: 1.08rem;
-    }
-
-    .section {
-      margin-top: 50px;
-    }
-
-    .section-heading {
-      margin-bottom: 20px;
-    }
-
-    .section-heading h2 {
-      margin-bottom: 6px;
-      font-size: 1.65rem;
-    }
-
-    .section-heading p {
-      max-width: 760px;
-      color: var(--muted);
-    }
-
-    .theme-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .theme-card {
-      min-height: 175px;
-      padding: 22px;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      background: var(--panel);
-    }
-
-    .theme-card:nth-child(1) {
-      border-top: 3px solid var(--cyan);
-    }
-
-    .theme-card:nth-child(2) {
-      border-top: 3px solid var(--violet);
-    }
-
-    .theme-card:nth-child(3) {
-      border-top: 3px solid var(--gold);
-    }
-
-    .theme-number {
-      display: block;
-      margin-bottom: 14px;
-      color: var(--cyan);
-      font-size: 0.78rem;
-      font-weight: 900;
-      letter-spacing: 0.1em;
-    }
-
-    .theme-card h3 {
-      margin-bottom: 8px;
       font-size: 1.05rem;
     }
 
-    .theme-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
+    /*
+      Expandable article styling.
+
+      Every future article will use:
+      <details class="post">
+        <summary>Article title and arrow</summary>
+        <div class="post-content">Article writing</div>
+      </details>
+    */
+
+    .posts {
+      display: grid;
+      gap: 16px;
+      margin-top: 45px;
     }
 
-    .notes-panel {
-      padding: 28px;
+    .post {
+      overflow: hidden;
       border: 1px solid var(--border);
-      border-radius: 22px;
-      background:
-        linear-gradient(
-          135deg,
-          rgba(53, 217, 255, 0.08),
-          rgba(139, 124, 255, 0.07)
-        );
+      border-radius: 18px;
+      background: var(--panel);
     }
 
-    .notes-panel h3 {
-      margin-bottom: 10px;
-      font-size: 1.25rem;
-    }
-
-    .notes-panel p {
-      max-width: 820px;
-      color: var(--muted);
-    }
-
-    .topic-list {
+    .post summary {
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 75px;
+      padding: 18px 22px;
+      cursor: pointer;
+      list-style: none;
+      font-size: 1.08rem;
+      font-weight: 800;
+      transition:
+        color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .post summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .post summary:hover {
+      color: var(--cyan);
+      background: rgba(53, 217, 255, 0.05);
+    }
+
+    .post-arrow {
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(53, 217, 255, 0.4);
+      border-radius: 50%;
+      color: var(--cyan);
+      font-size: 1.15rem;
+      transition: transform 0.25s ease;
+    }
+
+    .post[open] .post-arrow {
+      transform: rotate(180deg);
+    }
+
+    .post-content {
+      padding: 0 22px 25px;
+      border-top: 1px solid var(--border);
+      color: #dce7f7;
+    }
+
+    .post-content p {
       margin-top: 20px;
     }
 
-    .topic {
-      padding: 7px 12px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      color: #dce7f7;
-      background: rgba(255, 255, 255, 0.04);
-      font-size: 0.82rem;
+    .post-content h2,
+    .post-content h3 {
+      margin-top: 28px;
+      color: var(--white);
     }
 
-    .back-button {
+    .post-content ul,
+    .post-content ol {
+      margin: 16px 0 0 24px;
+    }
+
+    .post-content a {
+      color: var(--cyan);
+      text-decoration: underline;
+    }
+
+    .post-date {
+      display: block;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .return-link {
       display: inline-flex;
       align-items: center;
       min-height: 44px;
-      margin-top: 42px;
+      margin-top: 46px;
       padding: 0 18px;
       border: 1px solid rgba(53, 217, 255, 0.45);
       border-radius: 999px;
@@ -272,7 +266,7 @@
         background 0.2s ease;
     }
 
-    .back-button:hover {
+    .return-link:hover {
       transform: translateY(-2px);
       background: rgba(53, 217, 255, 0.08);
     }
@@ -306,13 +300,13 @@
       }
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 700px) {
       main {
-        padding-top: 48px;
+        padding-top: 45px;
       }
 
-      .theme-grid {
-        grid-template-columns: 1fr;
+      .post summary {
+        font-size: 1rem;
       }
 
       .footer-inner {
@@ -324,7 +318,7 @@
 
 <body>
   <nav>
-    <div class="container nav-inner">
+    <div class="nav-inner">
       <a class="brand" href="index.html">shalauddin</a>
 
       <div class="nav-links">
@@ -360,104 +354,59 @@
 
   <main>
     <div class="container">
-      <a class="breadcrumb" href="index.html">
+      <a class="home-link" href="index.html">
         &larr; Home
       </a>
 
-      <section class="hero">
-        <p class="eyebrow">Research and learning area</p>
+      <p class="eyebrow">Research and learning area</p>
 
-        <h1>Molecular Dynamics &amp; Coulomb Explosion</h1>
+      <h1>Molecular Dynamics &amp; Coulomb Explosion</h1>
 
-        <p class="intro">
-          This section develops the physical ideas behind molecular
-          fragmentation and Coulomb explosion imaging. It connects molecular
-          structure, ionization, momentum conservation, kinetic-energy
-          release, and potential-energy surfaces with the experimental
-          observables used to investigate ultrafast molecular dynamics.
-        </p>
-      </section>
+      <p class="intro">
+        This section develops the physical ideas behind molecular
+        fragmentation and Coulomb explosion imaging. It connects molecular
+        structure, ionization, momentum conservation, kinetic-energy release,
+        and potential-energy surfaces with the experimental observables used
+        to investigate ultrafast molecular dynamics.
+      </p>
 
-      <section class="section">
-        <div class="section-heading">
-          <h2>Learning themes</h2>
+      <!--
+        FUTURE POSTS GO INSIDE THE "posts" SECTION BELOW.
 
-          <p>
-            The material in this collection is organized around the physical
-            concepts needed to interpret molecular fragmentation experiments.
-          </p>
-        </div>
+        Copy this complete block whenever you add a new article:
 
-        <div class="theme-grid">
-          <article class="theme-card">
-            <span class="theme-number">THEME 01</span>
+        <details class="post">
+          <summary>
+            <span>Write the title of your article here</span>
+            <span class="post-arrow" aria-hidden="true">&#9662;</span>
+          </summary>
 
-            <h3>Molecular Structure and Dynamics</h3>
+          <div class="post-content">
+            <span class="post-date">Month Day, Year</span>
 
             <p>
-              Molecular geometry, electronic states, nuclear motion,
-              potential-energy surfaces, and characteristic molecular
-              timescales.
+              Write the introduction to your article here.
             </p>
-          </article>
 
-          <article class="theme-card">
-            <span class="theme-number">THEME 02</span>
-
-            <h3>Ionization and Fragmentation</h3>
+            <h2>First section</h2>
 
             <p>
-              Strong-field ionization, charge localization, dissociation
-              pathways, and the physical origin of molecular fragments.
+              Write the detailed explanation here.
             </p>
-          </article>
 
-          <article class="theme-card">
-            <span class="theme-number">THEME 03</span>
-
-            <h3>Momentum and Energy Imaging</h3>
+            <h2>Second section</h2>
 
             <p>
-              Momentum conservation, kinetic-energy release, angular
-              correlations, and reconstruction of molecular structure from
-              fragment momenta.
+              Continue your article here.
             </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-heading">
-          <h2>Research notes and articles</h2>
-
-          <p>
-            This collection organizes theoretical explanations, equations,
-            references, and experimental connections used in the study of
-            Coulomb explosion and ultrafast molecular dynamics.
-          </p>
-        </div>
-
-        <article class="notes-panel">
-          <h3>Foundations of Coulomb Explosion Imaging</h3>
-
-          <p>
-            The starting point for this collection is the relationship between
-            molecular geometry and the momenta of charged fragments. The notes
-            in this area connect the underlying physical model with the
-            quantities measured in a momentum-imaging experiment.
-          </p>
-
-          <div class="topic-list">
-            <span class="topic">Molecular geometry</span>
-            <span class="topic">Potential-energy surfaces</span>
-            <span class="topic">Momentum conservation</span>
-            <span class="topic">Kinetic-energy release</span>
-            <span class="topic">Fragmentation channels</span>
           </div>
-        </article>
+        </details>
+      -->
+
+      <section class="posts" aria-label="Research articles">
       </section>
 
-      <a class="back-button" href="index.html">
+      <a class="return-link" href="index.html">
         &larr; Return to homepage
       </a>
     </div>
