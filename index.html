@@ -277,6 +277,59 @@
       font-size: 0.9rem;
     }
 
+    /* Recent updates section (same visual family as the research strip) */
+    .updates-strip {
+      margin-top: 28px;
+      padding: 26px 28px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .updates-strip h2 {
+      margin-bottom: 14px;
+      font-size: 1.45rem;
+    }
+
+    .updates-list {
+      list-style: none;
+    }
+
+    .updates-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      font-size: 0.95rem;
+    }
+
+    .updates-list li:last-child {
+      border-bottom: none;
+    }
+
+    .update-date {
+      flex-shrink: 0;
+      min-width: 86px;
+      color: var(--gold);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .update-text {
+      color: var(--muted);
+    }
+
+    .update-text a {
+      color: var(--cyan);
+    }
+
+    .update-text a:hover {
+      text-decoration: underline;
+    }
+
     footer {
       padding: 22px 0;
       border-top: 1px solid var(--border);
@@ -365,6 +418,16 @@
       .research-strip {
         padding: 22px 20px;
       }
+
+      .updates-strip {
+        padding: 22px 20px;
+      }
+
+      .updates-list li {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 2px;
+      }
     }
   </style>
 </head>
@@ -376,6 +439,13 @@
 
       <div class="nav-links">
         <a href="research.html">Research</a>
+
+        <!--
+          Uncomment this link once learning.html exists,
+          so the site never shows a broken link:
+
+          <a href="learning.html">Learning</a>
+        -->
 
         <a href="projects.html">Projects</a>
 
@@ -477,6 +547,28 @@
             <p>Coincidence detection of charged-particle momenta.</p>
           </article>
         </div>
+      </section>
+
+      <!--
+        HOW TO ADD A WEEKLY UPDATE:
+        1. Copy one <li> ... </li> block below.
+        2. Paste it as the FIRST item in the list (newest on top).
+        3. Edit the date and the text. Link to the new page if there is one,
+           for example: <a href="learning/my-article.html">Read the article</a>
+        4. Keep only the 4 most recent items; delete the oldest.
+      -->
+      <section class="updates-strip">
+        <h2>Recent updates</h2>
+
+        <ul class="updates-list">
+          <li>
+            <span class="update-date">Jul 2026</span>
+            <span class="update-text">
+              Website launched: homepage, custom domain, and HTTPS
+              configured.
+            </span>
+          </li>
+        </ul>
       </section>
     </div>
   </main>
