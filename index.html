@@ -38,8 +38,16 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--white);
       background:
-        radial-gradient(circle at 85% 18%, rgba(139, 124, 255, 0.22), transparent 30%),
-        radial-gradient(circle at 10% 90%, rgba(53, 217, 255, 0.16), transparent 32%),
+        radial-gradient(
+          circle at 85% 18%,
+          rgba(139, 124, 255, 0.22),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 10% 90%,
+          rgba(53, 217, 255, 0.16),
+          transparent 32%
+        ),
         var(--navy);
       line-height: 1.6;
     }
@@ -72,6 +80,7 @@
     }
 
     .brand {
+      flex-shrink: 0;
       font-size: 1.2rem;
       font-weight: 900;
       letter-spacing: 0.03em;
@@ -80,23 +89,33 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
+      justify-content: flex-end;
+      gap: 15px;
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.84rem;
+      white-space: nowrap;
     }
 
     .nav-links a {
-      transition: color 0.2s ease;
+      transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
     }
 
     .nav-links a:hover {
       color: var(--cyan);
     }
 
-    .linkedin-link {
-      padding: 8px 15px;
-      border: 1px solid rgba(53, 217, 255, 0.45);
+    .external-link {
+      padding: 7px 12px;
+      border: 1px solid rgba(53, 217, 255, 0.42);
       border-radius: 999px;
+    }
+
+    .external-link:hover {
+      border-color: var(--cyan);
+      background: rgba(53, 217, 255, 0.08);
     }
 
     main {
@@ -118,8 +137,16 @@
       border: 1px solid var(--border);
       border-radius: 30px;
       background:
-        radial-gradient(circle at 50% 35%, rgba(53, 217, 255, 0.24), transparent 28%),
-        linear-gradient(145deg, rgba(53, 217, 255, 0.12), rgba(139, 124, 255, 0.2));
+        radial-gradient(
+          circle at 50% 35%,
+          rgba(53, 217, 255, 0.24),
+          transparent 28%
+        ),
+        linear-gradient(
+          145deg,
+          rgba(53, 217, 255, 0.12),
+          rgba(139, 124, 255, 0.2)
+        );
       box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
     }
 
@@ -179,7 +206,9 @@
       border: 1px solid var(--border);
       border-radius: 999px;
       font-weight: 800;
-      transition: 0.2s ease;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
     .button-primary {
@@ -261,11 +290,23 @@
       gap: 20px;
     }
 
-    @media (max-width: 900px) {
-      .nav-links a:not(.linkedin-link) {
-        display: none;
+    @media (max-width: 1050px) {
+      .nav-inner {
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
       }
 
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+        padding-bottom: 3px;
+        overflow-x: auto;
+      }
+    }
+
+    @media (max-width: 900px) {
       .profile-layout {
         grid-template-columns: 1fr;
         gap: 34px;
@@ -307,6 +348,24 @@
         flex-direction: column;
       }
     }
+
+    @media (max-width: 520px) {
+      main {
+        padding-top: 38px;
+      }
+
+      h1 {
+        font-size: 3.4rem;
+      }
+
+      .professional-details {
+        font-size: 0.98rem;
+      }
+
+      .research-strip {
+        padding: 22px 20px;
+      }
+    }
   </style>
 </head>
 
@@ -316,13 +375,27 @@
       <a class="brand" href="index.html">shalauddin</a>
 
       <div class="nav-links">
-        <a href="about.html">About</a>
         <a href="research.html">Research</a>
-        <a href="publications.html">Publications</a>
+
+        <a href="projects.html">Projects</a>
+
+        <a href="publications.html">
+          Publications &amp; Conferences
+        </a>
+
         <a href="cv.html">CV</a>
-        <a href="contact.html">Contact</a>
+
         <a
-          class="linkedin-link"
+          class="external-link"
+          href="https://scholar.google.com/citations?hl=en&amp;user=pESnwUUAAAAJ"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Google Scholar
+        </a>
+
+        <a
+          class="external-link"
           href="https://www.linkedin.com/in/fnu-shalauddin/"
           target="_blank"
           rel="noopener noreferrer"
@@ -350,6 +423,7 @@
           <div class="professional-details">
             <strong>Graduate Research Assistant</strong>
             <em>Atomic, Molecular and Optical Physics</em>
+
             <span>
               James R. Macdonald Laboratory, Department of Physics,
               Kansas State University
@@ -381,6 +455,7 @@
       <section class="research-strip">
         <div class="research-heading">
           <h2>Research at a glance</h2>
+
           <a class="learn-more" href="research.html">
             View detailed research &rarr;
           </a>
@@ -408,8 +483,13 @@
 
   <footer>
     <div class="container footer-inner">
-      <span>&copy; 2026 Shalauddin &middot; Kansas State University</span>
-      <a href="mailto:shalauddin@ksu.edu">shalauddin@ksu.edu</a>
+      <span>
+        &copy; 2026 Shalauddin &middot; Kansas State University
+      </span>
+
+      <a href="mailto:shalauddin@ksu.edu">
+        shalauddin@ksu.edu
+      </a>
     </div>
   </footer>
 </body>
