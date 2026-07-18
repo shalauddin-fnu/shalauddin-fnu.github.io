@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Research Projects | Shalauddin</title>
+
+  <meta
+    name="description"
+    content="Experimental AMO physics research projects by Shalauddin, including ultrafast molecular dynamics, femtosecond pump-probe spectroscopy, COLTRIMS, and Coulomb explosion imaging."
+  >
+
+  <style>
+    :root {
+      --navy: #07152f;
+      --navy-light: #102750;
+      --cyan: #35d9ff;
+      --violet: #8b7cff;
+      --gold: #ffc857;
+      --white: #f7fbff;
+      --muted: #b8c7df;
+      --border: rgba(255, 255, 255, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--white);
+      background:
+        radial-gradient(
+          circle at 85% 18%,
+          rgba(139, 124, 255, 0.22),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 10% 90%,
+          rgba(53, 217, 255, 0.16),
+          transparent 32%
+        ),
+        var(--navy);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: 0 auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+      background: rgba(7, 21, 47, 0.94);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      flex-shrink: 0;
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 15px;
+      color: var(--muted);
+      font-size: 0.84rem;
+      white-space: nowrap;
+    }
+
+    .nav-links a {
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links .active {
+      color: var(--cyan);
+    }
+
+    .external-link {
+      padding: 7px 12px;
+      border: 1px solid rgba(53, 217, 255, 0.42);
+      border-radius: 999px;
+    }
+
+    .external-link:hover {
+      border-color: var(--cyan);
+      background: rgba(53, 217, 255, 0.08);
+    }
+
+    main {
+      padding: 58px 0 70px;
+    }
+
+    .page-introduction {
+      max-width: 900px;
+      margin-bottom: 42px;
+    }
+
+    .eyebrow {
+      margin-bottom: 10px;
+      color: var(--cyan);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .introduction {
+      max-width: 850px;
+      color: #e2ebf8;
+      font-size: 1.05rem;
+    }
+
+    .projects-heading {
+      margin-bottom: 20px;
+      font-size: 1.6rem;
+    }
+
+    .projects-list {
+      display: grid;
+      gap: 22px;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      padding: 28px 30px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.055);
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .project-card::before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 4px;
+      background: var(--cyan);
+      content: "";
+    }
+
+    .project-card:nth-child(2)::before {
+      background: var(--violet);
+    }
+
+    .project-card:nth-child(3)::before {
+      background: var(--gold);
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(53, 217, 255, 0.35);
+      background: rgba(255, 255, 255, 0.075);
+    }
+
+    .project-number {
+      display: inline-block;
+      margin-bottom: 7px;
+      color: var(--cyan);
+      font-size: 0.75rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .project-card:nth-child(2) .project-number {
+      color: var(--violet);
+    }
+
+    .project-card:nth-child(3) .project-number {
+      color: var(--gold);
+    }
+
+    .project-card h2 {
+      margin-bottom: 12px;
+      font-size: 1.35rem;
+      line-height: 1.3;
+    }
+
+    .project-card p {
+      max-width: 930px;
+      color: var(--muted);
+    }
+
+    .project-role {
+      margin-top: 15px;
+      color: #dce8f8;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .future-note {
+      margin-top: 30px;
+      padding: 20px 24px;
+      border: 1px dashed rgba(53, 217, 255, 0.32);
+      border-radius: 18px;
+      color: var(--muted);
+      background: rgba(53, 217, 255, 0.035);
+    }
+
+    .future-note strong {
+      color: var(--white);
+    }
+
+    .back-link {
+      display: inline-flex;
+      margin-top: 30px;
+      padding: 9px 16px;
+      border: 1px solid rgba(53, 217, 255, 0.45);
+      border-radius: 999px;
+      color: var(--cyan);
+      font-size: 0.88rem;
+      font-weight: 800;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .back-link:hover {
+      transform: translateY(-2px);
+      background: rgba(53, 217, 255, 0.08);
+    }
+
+    footer {
+      padding: 22px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    @media (max-width: 1050px) {
+      .nav-inner {
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+        padding-bottom: 3px;
+        overflow-x: auto;
+      }
+    }
+
+    @media (max-width: 650px) {
+      main {
+        padding-top: 42px;
+      }
+
+      .project-card {
+        padding: 24px 22px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">shalauddin</a>
+
+      <div class="nav-links">
+        <a class="active" href="projects.html">
+          Research Projects
+        </a>
+
+        <a href="publications.html">
+          Publications &amp; Conferences
+        </a>
+
+        <a href="cv.html">CV</a>
+
+        <a
+          class="external-link"
+          href="https://scholar.google.com/citations?hl=en&amp;user=pESnwUUAAAAJ"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Google Scholar
+        </a>
+
+        <a
+          class="external-link"
+          href="https://www.linkedin.com/in/fnu-shalauddin/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <header class="page-introduction">
+        <p class="eyebrow">
+          Experimental AMO Physics
+        </p>
+
+        <h1>Research Projects</h1>
+
+        <p class="introduction">
+          My experimental research is in Atomic, Molecular and Optical
+          Physics, with an emphasis on ultrafast molecular dynamics. I use
+          femtosecond pump-probe spectroscopy, Coulomb explosion imaging,
+          and COLTRIMS to investigate molecular ionization, fragmentation,
+          and structural dynamics.
+        </p>
+      </header>
+
+      <section aria-labelledby="selected-projects">
+        <h2 class="projects-heading" id="selected-projects">
+          Selected projects
+        </h2>
+
+        <div class="projects-list">
+          <article class="project-card">
+            <span class="project-number">
+              Project 01
+            </span>
+
+            <h2>
+              Ultrafast Dynamics of Iodomethane
+            </h2>
+
+            <p>
+              This project investigates excitation, ionization, and
+              dissociation in iodomethane (CH<sub>3</sub>I) using two-color
+              femtosecond pump-probe spectroscopy. Coincident fragment
+              measurements are used to distinguish intensity-dependent
+              dynamics, including vibrational excitation, predissociation,
+              and dissociative-ionization pathways.
+            </p>
+
+            <p class="project-role">
+              PhD research project
+            </p>
+          </article>
+
+          <article class="project-card">
+            <span class="project-number">
+              Project 02
+            </span>
+
+            <h2>
+              Ultraviolet Photodynamics of 1,2-Dichloroethylene
+            </h2>
+
+            <p>
+              This collaborative project examines the photoinduced dynamics
+              of the cis and trans isomers of 1,2-dichloroethylene using
+              time-resolved Coulomb explosion imaging. Fragment momenta,
+              ion yields, and kinetic-energy distributions are used to
+              investigate isomerization and competing molecular
+              dissociation pathways.
+            </p>
+
+            <p class="project-role">
+              Collaborative research project
+            </p>
+          </article>
+
+          <article class="project-card">
+            <span class="project-number">
+              Project 03
+            </span>
+
+            <h2>
+              Coherent Vibrational Dynamics in Trifluoroiodomethane
+            </h2>
+
+            <p>
+              This collaborative project investigates coherent vibrational
+              motion in trifluoroiodomethane (CF<sub>3</sub>I) using
+              time-resolved Coulomb explosion imaging. Time-dependent
+              fragment-momentum correlations provide structural information
+              about laser-induced nuclear dynamics.
+            </p>
+
+            <p class="project-role">
+              Collaborative research project
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <div class="future-note">
+        <strong>Continuing research:</strong>
+        Additional projects will be added as my doctoral research develops.
+      </div>
+
+      <a class="back-link" href="index.html">
+        &larr; Return to homepage
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>
+        &copy; 2026 Shalauddin &middot; Kansas State University
+      </span>
+
+      <a href="mailto:shalauddin@ksu.edu">
+        shalauddin@ksu.edu
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
