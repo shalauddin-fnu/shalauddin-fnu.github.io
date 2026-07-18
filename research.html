@@ -323,6 +323,140 @@
       }
     }
   </style>
+
+  <!-- Light academic theme override -->
+  <style>
+    :root {
+      --navy: #10233f;
+      --cyan: #087ea4;
+      --violet: #635bba;
+      --gold: #b7791f;
+      --pink: #c24170;
+      --white: #ffffff;
+      --muted: #56657a;
+      --border: #d9e1eb;
+      --panel: #ffffff;
+      --page: #f6f8fb;
+      --text: #172033;
+    }
+
+    body {
+      color: var(--text);
+      background: var(--page);
+    }
+
+    nav {
+      border-bottom-color: #dbe3ed;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 4px 18px rgba(16, 35, 63, 0.05);
+    }
+
+    .brand,
+    h1,
+    h2,
+    h3 {
+      color: var(--navy);
+    }
+
+    .nav-links {
+      color: #4d5c72;
+    }
+
+    .nav-links a:not(.external-link) {
+      padding: 7px 12px;
+      border: 1px solid #d5dee9;
+      border-radius: 10px;
+      background: #ffffff;
+    }
+
+    .nav-links a:not(.external-link):hover,
+    .nav-links .active {
+      border-color: rgba(8, 126, 164, 0.55);
+      color: var(--cyan);
+      background: #eef8fb;
+    }
+
+    .external-link {
+      border-color: rgba(8, 126, 164, 0.45);
+      color: #24506d;
+      background: #ffffff;
+    }
+
+    .external-link:hover {
+      border-color: var(--cyan);
+      background: #eef8fb;
+    }
+
+    .eyebrow,
+    .conference-link,
+    .home-link,
+    .card-link {
+      color: var(--cyan);
+    }
+
+    .research-introduction {
+      color: #334155;
+    }
+
+    .content-card,
+    .learning-section {
+      border-color: #d7e0ea;
+      background: var(--panel);
+      box-shadow: 0 14px 38px rgba(16, 35, 63, 0.07);
+    }
+
+    .content-card p {
+      color: #3d4b60;
+    }
+
+    .content-card strong {
+      color: var(--navy);
+    }
+
+    .learning-card {
+      border-color: #dce4ed;
+      border-left-color: var(--cyan);
+      background: #f9fbfd;
+    }
+
+    .learning-card:nth-child(2) {
+      border-left-color: var(--violet);
+    }
+
+    .learning-card:nth-child(3) {
+      border-left-color: var(--gold);
+    }
+
+    .learning-card:nth-child(4) {
+      border-left-color: var(--pink);
+    }
+
+    .learning-card:hover {
+      border-color: rgba(8, 126, 164, 0.45);
+      background: #f1f8fb;
+      box-shadow: 0 13px 28px rgba(16, 35, 63, 0.1);
+    }
+
+    .learning-card p {
+      color: var(--muted);
+    }
+
+    footer {
+      border-top-color: #d9e1eb;
+      color: var(--muted);
+      background: #ffffff;
+    }
+
+    footer a {
+      color: #315878;
+    }
+
+    ::selection {
+      color: #ffffff;
+      background: var(--cyan);
+    }
+  </style>
+
 </head>
 
 <body>
@@ -374,7 +508,7 @@
         <p class="research-introduction">
           My research is in experimental atomic, molecular, and optical
           physics, with an emphasis on ultrafast molecular dynamics. At the
-          James R. Macdonald Laboratory, I employ femtosecond pump–probe
+          James R. Macdonald Laboratory, I employ femtosecond pump&ndash;probe
           spectroscopy and cold-target recoil-ion momentum spectroscopy
           (COLTRIMS) to investigate molecular ionization, fragmentation,
           and structural dynamics.
@@ -388,7 +522,7 @@
           <p>
             My initial PhD project focuses on the ultrafast dynamics of
             methyl iodide (CH<sub>3</sub>I), investigated using a two-color
-            femtosecond pump–probe experiment. The experimental platform is
+            femtosecond pump&ndash;probe experiment. The experimental platform is
             based on a Ti:sapphire laser system operating at a repetition
             rate of 10 kHz, with pulse energies of up to approximately 2 mJ
             and pulse durations of approximately 30 fs.
@@ -451,7 +585,7 @@
             </h3>
 
             <p>
-              Femtosecond lasers, pump–probe methods, and experimental optics.
+              Femtosecond lasers, pump&ndash;probe methods, and experimental optics.
             </p>
 
             <span class="card-link">
