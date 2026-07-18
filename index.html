@@ -431,6 +431,174 @@
       }
     }
   </style>
+
+  <!-- Light academic theme override -->
+  <style>
+    :root {
+      --navy: #10233f;
+      --navy-light: #1c3c63;
+      --cyan: #087ea4;
+      --violet: #635bba;
+      --gold: #b7791f;
+      --pink: #c24170;
+      --white: #ffffff;
+      --muted: #56657a;
+      --border: #d9e1eb;
+      --page: #f6f8fb;
+      --card: #ffffff;
+      --text: #172033;
+    }
+
+    body {
+      color: var(--text);
+      background: var(--page);
+    }
+
+    nav {
+      border-bottom-color: #dbe3ed;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 4px 18px rgba(16, 35, 63, 0.05);
+    }
+
+    .brand {
+      color: var(--navy);
+    }
+
+    .nav-links {
+      color: #4d5c72;
+    }
+
+    .nav-links a:hover {
+      color: var(--cyan);
+    }
+
+    .page-link {
+      border-color: #d5dee9;
+      background: #ffffff;
+    }
+
+    .page-link:hover {
+      border-color: rgba(8, 126, 164, 0.55);
+      background: #eef8fb;
+    }
+
+    .external-link {
+      border-color: rgba(8, 126, 164, 0.45);
+      color: #24506d;
+      background: #ffffff;
+    }
+
+    .external-link:hover {
+      border-color: var(--cyan);
+      background: #eef8fb;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--navy);
+    }
+
+    .portrait-card {
+      border-color: #d4dde8;
+      background: var(--card);
+      box-shadow: 0 18px 45px rgba(16, 35, 63, 0.13);
+    }
+
+    .professional-details {
+      color: var(--muted);
+    }
+
+    .professional-details strong {
+      color: var(--navy);
+    }
+
+    .professional-details em {
+      color: var(--cyan);
+    }
+
+    .appointment {
+      color: #294765;
+    }
+
+    .affiliation {
+      color: var(--muted);
+    }
+
+    .about-text {
+      color: #334155;
+    }
+
+    .button {
+      border-color: #ced8e4;
+    }
+
+    .button-primary {
+      border-color: var(--cyan);
+      background: var(--cyan);
+      color: #ffffff;
+      box-shadow: 0 8px 22px rgba(8, 126, 164, 0.18);
+    }
+
+    .button:hover {
+      box-shadow: 0 11px 26px rgba(8, 126, 164, 0.2);
+    }
+
+    .research-strip {
+      border-color: #d7e0ea;
+      background: var(--card);
+      box-shadow: 0 14px 38px rgba(16, 35, 63, 0.07);
+    }
+
+    .learn-more,
+    .card-link {
+      color: var(--cyan);
+    }
+
+    .research-item {
+      border-color: #dce4ed;
+      border-left-color: var(--cyan);
+      background: #f9fbfd;
+    }
+
+    .research-item:nth-child(2) {
+      border-left-color: var(--violet);
+    }
+
+    .research-item:nth-child(3) {
+      border-left-color: var(--gold);
+    }
+
+    .research-item:nth-child(4) {
+      border-left-color: var(--pink);
+    }
+
+    .research-item:hover {
+      border-color: rgba(8, 126, 164, 0.45);
+      background: #f1f8fb;
+      box-shadow: 0 13px 28px rgba(16, 35, 63, 0.1);
+    }
+
+    .research-item p {
+      color: var(--muted);
+    }
+
+    footer {
+      border-top-color: #d9e1eb;
+      color: var(--muted);
+      background: #ffffff;
+    }
+
+    footer a {
+      color: #315878;
+    }
+
+    ::selection {
+      color: #ffffff;
+      background: var(--cyan);
+    }
+  </style>
+
 </head>
 
 <body>
