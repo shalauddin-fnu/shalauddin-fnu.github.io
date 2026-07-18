@@ -305,6 +305,138 @@
       }
     }
   </style>
+
+  <!-- Light academic theme override -->
+  <style>
+    :root {
+      --navy: #10233f;
+      --navy-light: #1c3c63;
+      --cyan: #087ea4;
+      --violet: #635bba;
+      --gold: #b7791f;
+      --white: #ffffff;
+      --muted: #56657a;
+      --border: #d9e1eb;
+      --page: #f6f8fb;
+      --card: #ffffff;
+      --text: #172033;
+    }
+
+    body {
+      color: var(--text);
+      background: var(--page);
+    }
+
+    nav {
+      border-bottom-color: #dbe3ed;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 4px 18px rgba(16, 35, 63, 0.05);
+    }
+
+    .brand,
+    h1,
+    h2 {
+      color: var(--navy);
+    }
+
+    .nav-links {
+      color: #4d5c72;
+    }
+
+    .nav-links a:not(.external-link) {
+      padding: 7px 12px;
+      border: 1px solid #d5dee9;
+      border-radius: 10px;
+      background: #ffffff;
+      transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .nav-links a:not(.external-link):hover,
+    .nav-links .active {
+      border-color: rgba(8, 126, 164, 0.55);
+      color: var(--cyan);
+      background: #eef8fb;
+    }
+
+    .external-link {
+      border-color: rgba(8, 126, 164, 0.45);
+      color: #24506d;
+      background: #ffffff;
+    }
+
+    .external-link:hover {
+      border-color: var(--cyan);
+      background: #eef8fb;
+    }
+
+    .eyebrow,
+    .project-number,
+    .back-link {
+      color: var(--cyan);
+    }
+
+    .introduction {
+      color: #334155;
+    }
+
+    .project-card {
+      border-color: #d7e0ea;
+      background: var(--card);
+      box-shadow: 0 12px 32px rgba(16, 35, 63, 0.065);
+    }
+
+    .project-card:hover {
+      border-color: rgba(8, 126, 164, 0.42);
+      background: #ffffff;
+      box-shadow: 0 16px 34px rgba(16, 35, 63, 0.1);
+    }
+
+    .project-card p {
+      color: var(--muted);
+    }
+
+    .project-role {
+      color: #294765;
+    }
+
+    .future-note {
+      border-color: rgba(8, 126, 164, 0.34);
+      color: var(--muted);
+      background: #eef8fb;
+    }
+
+    .future-note strong {
+      color: var(--navy);
+    }
+
+    .back-link {
+      border-color: rgba(8, 126, 164, 0.45);
+      background: #ffffff;
+    }
+
+    .back-link:hover {
+      background: #eef8fb;
+    }
+
+    footer {
+      border-top-color: #d9e1eb;
+      color: var(--muted);
+      background: #ffffff;
+    }
+
+    footer a {
+      color: #315878;
+    }
+
+    ::selection {
+      color: #ffffff;
+      background: var(--cyan);
+    }
+  </style>
+
 </head>
 
 <body>
