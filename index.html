@@ -118,6 +118,21 @@
       border-radius: 999px;
     }
 
+      .page-link {
+        padding: 7px 12px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.025);
+      }
+      
+      .page-link:hover {
+        border-color: rgba(53, 217, 255, 0.55);
+        background: rgba(53, 217, 255, 0.08);
+      }
+
+
+
+    
     .external-link:hover {
       border-color: var(--cyan);
       background: rgba(53, 217, 255, 0.08);
@@ -424,13 +439,17 @@
       <a class="brand" href="index.html">shalauddin</a>
 
       <div class="nav-links">
-        <a href="projects.html">Research Projects</a>
-
-        <a href="publications.html">
+        <a class="page-link" href="projects.html">
+          Research Projects
+        </a>
+        
+        <a class="page-link" href="publications.html">
           Publications &amp; Conferences
         </a>
-
-        <a href="cv.html">CV</a>
+        
+        <a class="page-link" href="cv.html">
+          CV
+        </a>
 
         <a
           class="external-link"
