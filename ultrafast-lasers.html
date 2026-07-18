@@ -2,30 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Ultrafast Lasers and Experimental Methods | Shalauddin</title>
 
   <meta
     name="description"
-    content="Research notes and learning articles about femtosecond lasers, ultrafast optics, pump-probe spectroscopy, and experimental methods."
+    content="Scientific learning articles about femtosecond laser pulses, ultrafast optics, pump-probe spectroscopy, and experimental methods."
   >
+
+  <!-- MathJax configuration for LaTeX equations -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: [
+          'script',
+          'noscript',
+          'style',
+          'textarea',
+          'pre',
+          'code'
+        ]
+      }
+    };
+  </script>
+
+  <!-- MathJax equation renderer -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    async
+  ></script>
 
   <style>
     :root {
       --navy: #07152f;
       --cyan: #35d9ff;
       --violet: #8b7cff;
+      --gold: #ffc857;
       --white: #f7fbff;
       --muted: #b8c7df;
       --border: rgba(255, 255, 255, 0.14);
       --panel: rgba(255, 255, 255, 0.055);
+      --equation: rgba(53, 217, 255, 0.055);
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -100,9 +137,20 @@
         background 0.2s ease;
     }
 
-    .nav-links a:hover,
-    .nav-links .active {
+    .nav-links a:hover {
       color: var(--cyan);
+    }
+
+    .page-link {
+      padding: 7px 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .page-link:hover {
+      border-color: rgba(53, 217, 255, 0.55);
+      background: rgba(53, 217, 255, 0.08);
     }
 
     .external-link {
@@ -154,7 +202,7 @@
 
     .posts {
       display: grid;
-      gap: 16px;
+      gap: 18px;
       margin-top: 45px;
     }
 
@@ -209,29 +257,41 @@
     }
 
     .post-content {
-      padding: 0 22px 25px;
+      padding: 5px 28px 32px;
       border-top: 1px solid var(--border);
       color: #dce7f7;
     }
 
     .post-content p {
-      margin-top: 20px;
+      margin-top: 18px;
     }
 
-    .post-content h2,
+    .post-content h2 {
+      margin-top: 34px;
+      color: var(--white);
+      font-size: 1.35rem;
+      line-height: 1.35;
+    }
+
     .post-content h3 {
       margin-top: 28px;
       color: var(--white);
+      font-size: 1.1rem;
     }
 
     .post-content ul,
     .post-content ol {
-      margin: 16px 0 0 24px;
+      margin: 16px 0 0 25px;
+    }
+
+    .post-content li {
+      margin-bottom: 8px;
     }
 
     .post-content a {
       color: var(--cyan);
       text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     .post-date {
@@ -239,6 +299,63 @@
       margin-top: 18px;
       color: var(--muted);
       font-size: 0.8rem;
+    }
+
+    .equation-block {
+      margin-top: 20px;
+      padding: 14px 18px;
+      overflow-x: auto;
+      border: 1px solid rgba(53, 217, 255, 0.2);
+      border-radius: 12px;
+      background: var(--equation);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .equation-note {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      text-align: center;
+    }
+
+    mjx-container {
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 4px 0;
+    }
+
+    .example-box {
+      margin-top: 24px;
+      padding: 18px 20px;
+      border-left: 4px solid var(--gold);
+      border-radius: 0 12px 12px 0;
+      background: rgba(255, 200, 87, 0.06);
+    }
+
+    .example-box h3 {
+      margin-top: 0;
+    }
+
+    .important-note {
+      margin-top: 24px;
+      padding: 18px 20px;
+      border-left: 4px solid var(--violet);
+      border-radius: 0 12px 12px 0;
+      background: rgba(139, 124, 255, 0.07);
+    }
+
+    .important-note strong {
+      color: var(--white);
+    }
+
+    .reference-list {
+      margin-top: 16px;
+      padding-left: 22px;
+    }
+
+    .reference-list li {
+      margin-bottom: 10px;
     }
 
     .return-link {
@@ -299,6 +416,10 @@
         font-size: 1rem;
       }
 
+      .post-content {
+        padding: 5px 20px 28px;
+      }
+
       .footer-inner {
         flex-direction: column;
       }
@@ -312,14 +433,17 @@
       <a class="brand" href="index.html">shalauddin</a>
 
       <div class="nav-links">
-        <a class="active" href="research.html">Research</a>
-        <a href="projects.html">Projects</a>
+        <a class="page-link" href="projects.html">
+          Research Projects
+        </a>
 
-        <a href="publications.html">
+        <a class="page-link" href="publications.html">
           Publications &amp; Conferences
         </a>
 
-        <a href="cv.html">CV</a>
+        <a class="page-link" href="cv.html">
+          CV
+        </a>
 
         <a
           class="external-link"
@@ -348,9 +472,13 @@
         &larr; Home
       </a>
 
-      <p class="eyebrow">Research and learning area</p>
+      <p class="eyebrow">
+        Research and learning area
+      </p>
 
-      <h1>Ultrafast Lasers &amp; Experimental Methods</h1>
+      <h1>
+        Ultrafast Lasers &amp; Experimental Methods
+      </h1>
 
       <p class="intro">
         This section explores the principles and experimental methods of
@@ -360,40 +488,602 @@
         investigate molecular dynamics on ultrafast timescales.
       </p>
 
-      <!--
-        FUTURE POSTS GO INSIDE THE "posts" SECTION BELOW.
-
-        Copy this complete block whenever you add a new article:
+      <section
+        class="posts"
+        aria-label="Ultrafast laser articles"
+      >
+        <!-- FIRST POST STARTS HERE -->
 
         <details class="post">
           <summary>
-            <span>Write the title of your article here</span>
-            <span class="post-arrow" aria-hidden="true">&#9662;</span>
+            <span>
+              Fundamentals of an Ultrashort Laser Pulse
+            </span>
+
+            <span
+              class="post-arrow"
+              aria-hidden="true"
+            >
+              &#9662;
+            </span>
           </summary>
 
-          <div class="post-content">
-            <span class="post-date">Month Day, Year</span>
+          <article class="post-content">
+            <span class="post-date">
+              July 18, 2026
+            </span>
 
             <p>
-              Write the introduction to your article here.
+              An ultrashort laser pulse is a localized electromagnetic wave
+              packet whose energy is concentrated within a short time
+              interval. In femtosecond laser experiments, pulse durations
+              are commonly between a few femtoseconds and several hundred
+              femtoseconds, where
+              \(1~\mathrm{fs}=10^{-15}~\mathrm{s}\).
             </p>
-
-            <h2>First section</h2>
 
             <p>
-              Write the detailed explanation here.
+              Unlike continuous-wave radiation, a laser pulse must be
+              described by both its rapidly oscillating electric field and
+              its more slowly varying temporal envelope.
             </p>
 
-            <h2>Second section</h2>
+            <h2>1. Electric field of a laser pulse</h2>
 
             <p>
-              Continue your article here.
+              A linearly polarized pulse propagating in the
+              \(z\)-direction may be represented as
             </p>
-          </div>
+
+            <div class="equation-block">
+              \[
+              E(z,t)
+              =
+              A(z,t)
+              \cos\!\left(
+              k_0z-\omega_0t+\phi_{\mathrm{CEP}}
+              \right).
+              \]
+            </div>
+
+            <p>In this expression:</p>
+
+            <ul>
+              <li>
+                \(A(z,t)\) is the slowly varying pulse envelope.
+              </li>
+
+              <li>
+                \(k_0\) is the central wave number.
+              </li>
+
+              <li>
+                \(\omega_0\) is the central angular frequency.
+              </li>
+
+              <li>
+                \(\phi_{\mathrm{CEP}}\) is the carrier-envelope phase.
+              </li>
+            </ul>
+
+            <p>
+              The central angular frequency, ordinary frequency, and
+              wavelength are related by
+            </p>
+
+            <div class="equation-block">
+              \[
+              \omega_0=2\pi\nu_0,
+              \qquad
+              \nu_0=\frac{c}{\lambda_0}.
+              \]
+            </div>
+
+            <p>
+              The corresponding optical period is
+            </p>
+
+            <div class="equation-block">
+              \[
+              T_0
+              =
+              \frac{1}{\nu_0}
+              =
+              \frac{\lambda_0}{c}.
+              \]
+            </div>
+
+            <div class="example-box">
+              <h3>Example: an 800 nm pulse</h3>
+
+              <p>
+                For a central wavelength of
+                \(\lambda_0=800~\mathrm{nm}\), the optical period is
+              approximately
+              \(T_0\approx2.67~\mathrm{fs}\). A
+              \(30~\mathrm{fs}\) pulse therefore contains approximately
+              eleven optical cycles.
+              This is an estimate because the meaning of pulse duration
+              depends on the temporal-envelope convention.
+              </p>
+            </div>
+
+            <h2>2. Intensity and temporal envelope</h2>
+
+            <p>
+              The electric field oscillates rapidly between positive and
+              negative values. Most experiments respond to the
+              cycle-averaged intensity rather than to the instantaneous
+              electric field. For a plane wave in a medium with refractive
+              index \(n\),
+            </p>
+
+            <div class="equation-block">
+              \[
+              I(t)
+              =
+              \frac{1}{2}
+              n\varepsilon_0c
+              \left|A(t)\right|^2,
+              \]
+            </div>
+
+            <p>
+              where \(\varepsilon_0\) is the vacuum permittivity.
+            </p>
+
+            <p>
+              A frequently used model is a Gaussian temporal intensity
+              profile:
+            </p>
+
+            <div class="equation-block">
+              \[
+              I(t)
+              =
+              I_0
+              \exp\!\left[
+              -4\ln(2)
+              \frac{(t-t_0)^2}
+              {\tau_{\mathrm{FWHM}}^2}
+              \right].
+              \]
+            </div>
+
+            <p>Here:</p>
+
+            <ul>
+              <li>
+                \(I_0\) is the peak intensity.
+              </li>
+
+              <li>
+                \(t_0\) is the time at the center of the pulse.
+              </li>
+
+              <li>
+                \(\tau_{\mathrm{FWHM}}\) is the intensity full width at
+                half maximum.
+              </li>
+            </ul>
+
+            <p>
+              At
+              \(t-t_0=\pm\tau_{\mathrm{FWHM}}/2\), the intensity is
+              one-half of its maximum value. Pulse duration should therefore
+              be reported together with the width convention and the
+              assumed pulse shape.
+            </p>
+
+            <h2>3. Pulse energy</h2>
+
+            <p>
+              The energy contained in one pulse is the time integral of the
+              optical power:
+            </p>
+
+            <div class="equation-block">
+              \[
+              E_{\mathrm{pulse}}
+              =
+              \int_{-\infty}^{\infty}
+              P(t)\,dt.
+              \]
+            </div>
+
+            <p>
+              For a Gaussian temporal power profile,
+            </p>
+
+            <div class="equation-block">
+              \[
+              P(t)
+              =
+              P_{\mathrm{peak}}
+              \exp\!\left[
+              -4\ln(2)
+              \frac{(t-t_0)^2}
+              {\tau_{\mathrm{FWHM}}^2}
+              \right].
+              \]
+            </div>
+
+            <p>
+              Integrating this function gives
+            </p>
+
+            <div class="equation-block">
+              \[
+              E_{\mathrm{pulse}}
+              =
+              P_{\mathrm{peak}}
+              \tau_{\mathrm{FWHM}}
+              \sqrt{\frac{\pi}{4\ln(2)}}.
+              \]
+            </div>
+
+            <p>
+              Since
+              \(\sqrt{\pi/[4\ln(2)]}\approx1.0645\), the Gaussian peak
+              power is
+            </p>
+
+            <div class="equation-block">
+              \[
+              P_{\mathrm{peak}}
+              \approx
+              \frac{E_{\mathrm{pulse}}}
+              {1.0645\,\tau_{\mathrm{FWHM}}}.
+              \]
+            </div>
+
+            <p>
+              The simpler expression
+              \(P_{\mathrm{peak}}\approx
+              E_{\mathrm{pulse}}/\tau_{\mathrm{FWHM}}\)
+              is useful for rapid estimates, but it does not include the
+              Gaussian pulse-shape correction.
+            </p>
+
+            <h2>4. Repetition rate and average power</h2>
+
+            <p>
+              A pulsed laser normally produces a periodic train of pulses.
+              If the repetition rate is \(f_{\mathrm{rep}}\), the time
+              between pulses is
+            </p>
+
+            <div class="equation-block">
+              \[
+              T_{\mathrm{rep}}
+              =
+              \frac{1}{f_{\mathrm{rep}}}.
+              \]
+            </div>
+
+            <p>
+              Average power is related to pulse energy and repetition rate
+              by
+            </p>
+
+            <div class="equation-block">
+              \[
+              P_{\mathrm{avg}}
+              =
+              E_{\mathrm{pulse}}
+              f_{\mathrm{rep}}.
+              \]
+            </div>
+
+            <p>
+              Average power describes the energy delivered over an extended
+              period. Peak power describes the maximum rate of energy
+              delivery within an individual pulse. These quantities should
+              not be confused.
+            </p>
+
+            <div class="example-box">
+              <h3>Illustrative calculation</h3>
+
+              <p>
+                Consider an ideal pulse train with
+                \(E_{\mathrm{pulse}}=2~\mathrm{mJ}\) and
+                \(f_{\mathrm{rep}}=10~\mathrm{kHz}\). Its average power is
+              </p>
+
+              <div class="equation-block">
+                \[
+                P_{\mathrm{avg}}
+                =
+                (2\times10^{-3}~\mathrm{J})
+                (10^{4}~\mathrm{s^{-1}})
+                =
+                20~\mathrm{W}.
+                \]
+              </div>
+
+              <p>
+                If the Gaussian pulse duration is \(30~\mathrm{fs}\), its
+                ideal peak power is approximately
+              </p>
+
+              <div class="equation-block">
+                \[
+                P_{\mathrm{peak}}
+                \approx
+                \frac{2\times10^{-3}}
+                {1.0645(30\times10^{-15})}
+                \approx
+                6.3\times10^{10}~\mathrm{W},
+                \]
+              </div>
+
+              <p>
+                or approximately \(63~\mathrm{GW}\).
+              </p>
+            </div>
+
+            <div class="important-note">
+              <strong>Important:</strong>
+              This is an idealized calculation. The energy and pulse
+              duration at the interaction region can differ from the laser
+              output because of optical losses, imperfect compression,
+              pulse-shape variations, and fluctuations in the laser system.
+            </div>
+
+            <h2>5. Fluence and peak intensity</h2>
+
+            <p>
+              Fluence is the pulse energy delivered per unit area. At a
+              fixed spatial position, it is the time integral of the
+              intensity:
+            </p>
+
+            <div class="equation-block">
+              \[
+              F
+              =
+              \int_{-\infty}^{\infty}
+              I(t)\,dt.
+              \]
+            </div>
+
+            <p>
+              Its SI unit is \(\mathrm{J\,m^{-2}}\), although
+              \(\mathrm{J\,cm^{-2}}\) is also commonly used.
+            </p>
+
+            <p>
+              For a Gaussian temporal intensity profile,
+            </p>
+
+            <div class="equation-block">
+              \[
+              F
+              =
+              I_0
+              \tau_{\mathrm{FWHM}}
+              \sqrt{\frac{\pi}{4\ln(2)}}.
+              \]
+            </div>
+
+            <p>
+              Therefore,
+            </p>
+
+            <div class="equation-block">
+              \[
+              I_0
+              \approx
+              \frac{F}
+              {1.0645\,\tau_{\mathrm{FWHM}}}.
+              \]
+            </div>
+
+            <p>
+              Peak intensity depends on both the temporal and spatial pulse
+              profiles. Pulse energy and duration alone are not sufficient
+              to determine the intensity at the laser focus; the beam size
+              and spatial distribution must also be known.
+            </p>
+
+            <h2>6. Spectral bandwidth</h2>
+
+            <p>
+              A short pulse contains a range of optical frequencies rather
+              than a single frequency. Its temporal duration
+              \(\Delta t\) and spectral bandwidth \(\Delta\nu\) are
+              connected through Fourier transformation.
+            </p>
+
+            <p>
+              For a transform-limited Gaussian pulse, using intensity FWHM
+              values,
+            </p>
+
+            <div class="equation-block">
+              \[
+              \Delta\nu\,\Delta t
+              =
+              \frac{2\ln(2)}{\pi}
+              \approx
+              0.441.
+              \]
+            </div>
+
+            <p>
+              The minimum frequency bandwidth required to support a
+              Gaussian pulse of duration \(\Delta t\) is therefore
+            </p>
+
+            <div class="equation-block">
+              \[
+              \Delta\nu
+              \approx
+              \frac{0.441}{\Delta t}.
+              \]
+            </div>
+
+            <p>
+              Near a central wavelength \(\lambda_0\), a sufficiently
+              narrow wavelength bandwidth may be converted approximately
+              to frequency bandwidth using
+            </p>
+
+            <div class="equation-block">
+              \[
+              \Delta\nu
+              \approx
+              \frac{c}{\lambda_0^2}
+              \Delta\lambda.
+              \]
+            </div>
+
+            <p>
+              A transform-limited pulse has the shortest duration supported
+              by its spectral amplitude. If the frequency components
+              acquire a nonconstant spectral phase, the pulse becomes
+              chirped and its temporal duration increases.
+            </p>
+
+            <div class="equation-block">
+              \[
+              \mathrm{TBP}
+              =
+              \Delta\nu\,\Delta t
+              \geq
+              0.441
+              \qquad
+              \text{(Gaussian pulse)}.
+              \]
+            </div>
+
+            <p class="equation-note">
+              Equality applies to a transform-limited Gaussian pulse under
+              the stated intensity-FWHM conventions.
+            </p>
+
+            <h2>7. Parameters used to describe a pulse</h2>
+
+            <p>
+              A useful characterization of an ultrashort pulse should
+              include:
+            </p>
+
+            <ul>
+              <li>Central wavelength</li>
+              <li>Spectral bandwidth</li>
+              <li>Pulse duration and width convention</li>
+              <li>Temporal pulse shape</li>
+              <li>Pulse energy</li>
+              <li>Repetition rate</li>
+              <li>Average power</li>
+              <li>Spatial beam profile and beam size</li>
+              <li>Polarization</li>
+              <li>Spectral phase or chirp, when relevant</li>
+            </ul>
+
+            <p>
+              No single parameter completely characterizes an ultrashort
+              pulse. Pulse energy, duration, spectral bandwidth, spatial
+              profile, polarization, and phase must be considered together
+              when interpreting a laser–matter interaction.
+            </p>
+
+            <h2>Summary</h2>
+
+            <p>
+              An ultrashort laser pulse consists of an optical carrier
+              contained within a temporal envelope. Its pulse energy is the
+              time integral of its power, while its average power depends
+              on pulse energy and repetition rate. Peak power and peak
+              intensity depend strongly on pulse duration and pulse shape.
+              The temporal duration and spectral bandwidth are connected
+              through the time–bandwidth product, and dispersion can
+              lengthen a pulse by introducing frequency-dependent phase.
+            </p>
+
+            <p>
+              These definitions provide the foundation for discussing
+              pulse propagation, dispersion, compression, focusing,
+              nonlinear optical processes, and femtosecond pump-probe
+              spectroscopy.
+            </p>
+
+            <h2>References and further reading</h2>
+
+            <ol class="reference-list">
+              <li>
+                J.-C. Diels and W. Rudolph,
+                <em>Ultrashort Laser Pulse Phenomena</em>,
+                Academic Press.
+              </li>
+
+              <li>
+                A. M. Weiner,
+                <em>Ultrafast Optics</em>,
+                Wiley.
+              </li>
+
+              <li>
+                <a
+                  href="https://www.newport.com/n/laser-pulse-characterization/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Newport: Laser Pulse Characterization
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="https://www.newport.com/n/ultrafast-pulse-characterization"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Newport: Ultrafast Pulse Characterization
+                </a>
+              </li>
+            </ol>
+          </article>
         </details>
-      -->
 
-      <section class="posts" aria-label="Ultrafast laser articles">
+        <!-- FIRST POST ENDS HERE -->
+
+        <!--
+          PASTE EACH NEW POST DIRECTLY ABOVE THIS LINE.
+
+          For future posts, paste a complete block with this structure:
+
+          <details class="post">
+            <summary>
+              <span>Title of the new article</span>
+
+              <span
+                class="post-arrow"
+                aria-hidden="true"
+              >
+                &#9662;
+              </span>
+            </summary>
+
+            <article class="post-content">
+              <span class="post-date">
+                Month Day, Year
+              </span>
+
+              <p>
+                Article introduction.
+              </p>
+
+              <h2>First section</h2>
+
+              <p>
+                Article content.
+              </p>
+            </article>
+          </details>
+        -->
       </section>
 
       <a class="return-link" href="index.html">
