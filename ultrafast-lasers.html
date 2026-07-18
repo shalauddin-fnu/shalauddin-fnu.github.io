@@ -358,6 +358,153 @@
       margin-bottom: 10px;
     }
 
+
+    .quiz {
+      margin-top: 38px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .quiz-label {
+      margin-bottom: 8px;
+      color: var(--cyan);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .quiz-header h2 {
+      margin: 0 0 8px;
+      color: var(--white);
+      font-size: 1.45rem;
+    }
+
+    .quiz-header p:last-child {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .quiz-question {
+      min-width: 0;
+      margin-top: 20px;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(7, 21, 47, 0.42);
+    }
+
+    .quiz-question legend {
+      padding: 0 6px;
+      color: var(--white);
+      font-weight: 750;
+      line-height: 1.45;
+    }
+
+    .quiz-option {
+      display: block;
+      margin-top: 10px;
+      padding: 11px 13px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      color: var(--muted);
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .quiz-option:hover {
+      border-color: rgba(53, 217, 255, 0.45);
+      background: rgba(53, 217, 255, 0.06);
+      color: var(--white);
+    }
+
+    .quiz-option input {
+      margin-right: 9px;
+      accent-color: var(--cyan);
+    }
+
+    .quiz-option.correct-answer {
+      border-color: rgba(58, 218, 132, 0.8);
+      background: rgba(58, 218, 132, 0.09);
+      color: #d8ffe9;
+    }
+
+    .quiz-option.selected-wrong {
+      border-color: rgba(255, 107, 129, 0.78);
+      background: rgba(255, 107, 129, 0.08);
+      color: #ffe1e6;
+    }
+
+    .quiz-feedback {
+      display: none;
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 9px;
+      line-height: 1.55;
+    }
+
+    .quiz-feedback.correct,
+    .quiz-feedback.incorrect {
+      display: block;
+    }
+
+    .quiz-feedback.correct {
+      border-left: 3px solid #3ada84;
+      background: rgba(58, 218, 132, 0.08);
+      color: #caffdf;
+    }
+
+    .quiz-feedback.incorrect {
+      border-left: 3px solid #ff6b81;
+      background: rgba(255, 107, 129, 0.08);
+      color: #ffd7de;
+    }
+
+    .quiz-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .quiz-button {
+      padding: 11px 18px;
+      border: 1px solid var(--cyan);
+      border-radius: 999px;
+      background: var(--cyan);
+      color: var(--navy);
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .quiz-button:hover {
+      filter: brightness(1.08);
+    }
+
+    .quiz-button-secondary {
+      background: transparent;
+      color: var(--cyan);
+    }
+
+    .quiz-result {
+      display: none;
+      margin-top: 18px;
+      padding: 14px 16px;
+      border: 1px solid rgba(53, 217, 255, 0.45);
+      border-radius: 12px;
+      background: rgba(53, 217, 255, 0.08);
+      color: var(--white);
+      font-weight: 750;
+      line-height: 1.55;
+    }
+
+    .quiz-result.visible {
+      display: block;
+    }
+
     .return-link {
       display: inline-flex;
       align-items: center;
@@ -741,163 +888,7 @@
               The simpler expression
               \(P_{\mathrm{peak}}\approx
               E_{\mathrm{pulse}}/\tau_{\mathrm{FWHM}}\)
-              is useful for rapid estimates, but it does not include the
-              Gaussian pulse-shape correction.
-            </p>
-
-            <h2>4. Repetition rate and average power</h2>
-
-            <p>
-              A pulsed laser normally produces a periodic train of pulses.
-              If the repetition rate is \(f_{\mathrm{rep}}\), the time
-              between pulses is
-            </p>
-
-            <div class="equation-block">
-              \[
-              T_{\mathrm{rep}}
-              =
-              \frac{1}{f_{\mathrm{rep}}}.
-              \]
-            </div>
-
-            <p>
-              Average power is related to pulse energy and repetition rate
-              by
-            </p>
-
-            <div class="equation-block">
-              \[
-              P_{\mathrm{avg}}
-              =
-              E_{\mathrm{pulse}}
-              f_{\mathrm{rep}}.
-              \]
-            </div>
-
-            <p>
-              Average power describes the energy delivered over an extended
-              period. Peak power describes the maximum rate of energy
-              delivery within an individual pulse. These quantities should
-              not be confused.
-            </p>
-
-            <div class="example-box">
-              <h3>Illustrative calculation</h3>
-
-              <p>
-                Consider an ideal pulse train with
-                \(E_{\mathrm{pulse}}=2~\mathrm{mJ}\) and
-                \(f_{\mathrm{rep}}=10~\mathrm{kHz}\). Its average power is
-              </p>
-
-              <div class="equation-block">
-                \[
-                P_{\mathrm{avg}}
-                =
-                (2\times10^{-3}~\mathrm{J})
-                (10^{4}~\mathrm{s^{-1}})
-                =
-                20~\mathrm{W}.
-                \]
-              </div>
-
-              <p>
-                If the Gaussian pulse duration is \(30~\mathrm{fs}\), its
-                ideal peak power is approximately
-              </p>
-
-              <div class="equation-block">
-                \[
-                P_{\mathrm{peak}}
-                \approx
-                \frac{2\times10^{-3}}
-                {1.0645(30\times10^{-15})}
-                \approx
-                6.3\times10^{10}~\mathrm{W},
-                \]
-              </div>
-
-              <p>
-                or approximately \(63~\mathrm{GW}\).
-              </p>
-            </div>
-
-            <div class="important-note">
-              <strong>Important:</strong>
-              This is an idealized calculation. The energy and pulse
-              duration at the interaction region can differ from the laser
-              output because of optical losses, imperfect compression,
-              pulse-shape variations, and fluctuations in the laser system.
-            </div>
-
-            <h2>5. Fluence and peak intensity</h2>
-
-            <p>
-              Fluence is the pulse energy delivered per unit area. At a
-              fixed spatial position, it is the time integral of the
-              intensity:
-            </p>
-
-            <div class="equation-block">
-              \[
-              F
-              =
-              \int_{-\infty}^{\infty}
-              I(t)\,dt.
-              \]
-            </div>
-
-            <p>
-              Its SI unit is \(\mathrm{J\,m^{-2}}\), although
-              \(\mathrm{J\,cm^{-2}}\) is also commonly used.
-            </p>
-
-            <p>
-              For a Gaussian temporal intensity profile,
-            </p>
-
-            <div class="equation-block">
-              \[
-              F
-              =
-              I_0
-              \tau_{\mathrm{FWHM}}
-              \sqrt{\frac{\pi}{4\ln(2)}}.
-              \]
-            </div>
-
-            <p>
-              Therefore,
-            </p>
-
-            <div class="equation-block">
-              \[
-              I_0
-              \approx
-              \frac{F}
-              {1.0645\,\tau_{\mathrm{FWHM}}}.
-              \]
-            </div>
-
-            <p>
-              Peak intensity depends on both the temporal and spatial pulse
-              profiles. Pulse energy and duration alone are not sufficient
-              to determine the intensity at the laser focus; the beam size
-              and spatial distribution must also be known.
-            </p>
-
-            <h2>6. Spectral bandwidth</h2>
-
-            <p>
-              A short pulse contains a range of optical frequencies rather
-              than a single frequency. Its temporal duration
-              \(\Delta t\) and spectral bandwidth \(\Delta\nu\) are
-              connected through Fourier transformation.
-            </p>
-
-            <p>
-              For a transform-limited Gaussian pulse, using intensity FWHM
+              is useful for rapid estimates, but it does…1152 tokens truncated…limited Gaussian pulse, using intensity FWHM
               values,
             </p>
 
@@ -987,7 +978,7 @@
               No single parameter completely characterizes an ultrashort
               pulse. Pulse energy, duration, spectral bandwidth, spatial
               profile, polarization, and phase must be considered together
-              when interpreting a laser–matter interaction.
+              when interpreting a laser&ndash;matter interaction.
             </p>
 
             <h2>Summary</h2>
@@ -999,7 +990,7 @@
               on pulse energy and repetition rate. Peak power and peak
               intensity depend strongly on pulse duration and pulse shape.
               The temporal duration and spectral bandwidth are connected
-              through the time–bandwidth product, and dispersion can
+              through the time&ndash;bandwidth product, and dispersion can
               lengthen a pulse by introducing frequency-dependent phase.
             </p>
 
@@ -1045,6 +1036,226 @@
                 </a>
               </li>
             </ol>
+
+            <section class="quiz" data-quiz>
+              <div class="quiz-header">
+                <p class="quiz-label">Retrieval practice</p>
+                <h2>Check your understanding</h2>
+                <p>
+                  Answer from memory before looking back at the article. After
+                  checking your answers, retake the quiz tomorrow and again in
+                  one week to strengthen recall.
+                </p>
+              </div>
+
+              <form class="quiz-form">
+                <fieldset
+                  class="quiz-question"
+                  data-answer="b"
+                  data-explanation="Frequency and wavelength are related by Î½â‚€ = c/Î»â‚€."
+                >
+                  <legend>1. Which expression correctly relates central frequency and wavelength?</legend>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q1" value="a">
+                    &nu;<sub>0</sub> = &lambda;<sub>0</sub>/c
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q1" value="b">
+                    &nu;<sub>0</sub> = c/&lambda;<sub>0</sub>
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q1" value="c">
+                    &nu;<sub>0</sub> = c&lambda;<sub>0</sub>
+                  </label>
+                  <div class="quiz-feedback" data-feedback aria-live="polite"></div>
+                </fieldset>
+
+                <fieldset
+                  class="quiz-question"
+                  data-answer="c"
+                  data-explanation="The intensity FWHM is the time interval between the leading and trailing points where I(t) equals half of its maximum value."
+                >
+                  <legend>2. What does the intensity FWHM pulse duration measure?</legend>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q2" value="a">
+                    The duration of one optical cycle
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q2" value="b">
+                    The total time for which the electric field is nonzero
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q2" value="c">
+                    The time between the two half-maximum intensity points
+                  </label>
+                  <div class="quiz-feedback" data-feedback aria-live="polite"></div>
+                </fieldset>
+
+                <fieldset
+                  class="quiz-question"
+                  data-answer="a"
+                  data-explanation="Pulse energy is the time integral of the instantaneous power: Eâ‚š = âˆ«P(t)dt."
+                >
+                  <legend>3. How is pulse energy obtained from instantaneous power?</legend>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q3" value="a">
+                    Integrate P(t) over time
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q3" value="b">
+                    Multiply the maximum power by repetition rate
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q3" value="c">
+                    Divide pulse duration by average power
+                  </label>
+                  <div class="quiz-feedback" data-feedback aria-live="polite"></div>
+                </fieldset>
+
+                <fieldset
+                  class="quiz-question"
+                  data-answer="b"
+                  data-explanation="Average power equals the energy in each pulse multiplied by the number of pulses per second: Pavg = Eâ‚š frep."
+                >
+                  <legend>4. Which equation gives the average power of a pulse train?</legend>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q4" value="a">
+                    P<sub>avg</sub> = E<sub>p</sub>/f<sub>rep</sub>
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q4" value="b">
+                    P<sub>avg</sub> = E<sub>p</sub>f<sub>rep</sub>
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q4" value="c">
+                    P<sub>avg</sub> = &tau;<sub>p</sub>f<sub>rep</sub>
+                  </label>
+                  <div class="quiz-feedback" data-feedback aria-live="polite"></div>
+                </fieldset>
+
+                <fieldset
+                  class="quiz-question"
+                  data-answer="c"
+                  data-explanation="(2 Ã— 10â»Â³ J)(10â´ sâ»Â¹) = 20 J sâ»Â¹ = 20 W."
+                >
+                  <legend>5. A 2 mJ pulse train operates at 10 kHz. What is its average power?</legend>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q5" value="a">
+                    0.2 W
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q5" value="b">
+                    2 W
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q5" value="c">
+                    20 W
+                  </label>
+                  <div class="quiz-feedback" data-feedback aria-live="polite"></div>
+                </fieldset>
+
+                <fieldset
+                  class="quiz-question"
+                  data-answer="b"
+                  data-explanation="For a Gaussian pulse, 0.94(2 mJ)/(30 fs) is approximately 6.3 Ã— 10Â¹â° W, or 63 GW."
+                >
+                  <legend>6. Approximately what is the peak power of a 2 mJ, 30 fs Gaussian pulse?</legend>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q6" value="a">
+                    63 MW
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q6" value="b">
+                    63 GW
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q6" value="c">
+                    630 TW
+                  </label>
+                  <div class="quiz-feedback" data-feedback aria-live="polite"></div>
+                </fieldset>
+
+                <fieldset
+                  class="quiz-question"
+                  data-answer="a"
+                  data-explanation="A transform-limited Gaussian pulse has Î”Î½Î”t = 0.441."
+                >
+                  <legend>7. What is the Gaussian transform-limited time&ndash;bandwidth product?</legend>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q7" value="a">
+                    0.441
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q7" value="b">
+                    0.882
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q7" value="c">
+                    1.000
+                  </label>
+                  <div class="quiz-feedback" data-feedback aria-live="polite"></div>
+                </fieldset>
+
+                <fieldset
+                  class="quiz-question"
+                  data-answer="c"
+                  data-explanation="Chirp makes the instantaneous frequency vary across the pulse and generally increases the pulse duration above the transform limit."
+                >
+                  <legend>8. What is a common temporal effect of chirp?</legend>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q8" value="a">
+                    It always increases pulse energy
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q8" value="b">
+                    It removes the carrier frequency
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q8" value="c">
+                    It generally lengthens the pulse above its transform limit
+                  </label>
+                  <div class="quiz-feedback" data-feedback aria-live="polite"></div>
+                </fieldset>
+
+                <fieldset
+                  class="quiz-question"
+                  data-answer="b"
+                  data-explanation="Peak intensity requires both temporal information and the spatial beam size or intensity profile."
+                >
+                  <legend>9. What additional information is needed to determine peak intensity from peak power?</legend>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q9" value="a">
+                    Only the repetition rate
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q9" value="b">
+                    The beam size or spatial intensity profile
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="pulse-q9" value="c">
+                    Only the carrier-envelope phase
+                  </label>
+                  <div class="quiz-feedback" data-feedback aria-live="polite"></div>
+                </fieldset>
+
+                <div class="quiz-actions">
+                  <button class="quiz-button" type="submit">Check answers</button>
+                  <button
+                    class="quiz-button quiz-button-secondary"
+                    type="button"
+                    data-reset-quiz
+                  >
+                    Try again
+                  </button>
+                </div>
+
+                <div
+                  class="quiz-result"
+                  data-quiz-result
+                  aria-live="polite"
+                ></div>
+              </form>
+            </section>
           </article>
         </details>
 
@@ -1103,5 +1314,106 @@
       </a>
     </div>
   </footer>
+
+  <script>
+    document.querySelectorAll("[data-quiz]").forEach(function (quiz) {
+      const form = quiz.querySelector(".quiz-form");
+      const questions = Array.from(
+        quiz.querySelectorAll(".quiz-question")
+      );
+      const result = quiz.querySelector("[data-quiz-result]");
+      const resetButton = quiz.querySelector("[data-reset-quiz]");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        let score = 0;
+        let answered = 0;
+
+        questions.forEach(function (question) {
+          const selected = question.querySelector("input:checked");
+          const correctValue = question.dataset.answer;
+          const explanation = question.dataset.explanation;
+          const feedback = question.querySelector("[data-feedback]");
+
+          question.querySelectorAll(".quiz-option").forEach(function (option) {
+            option.classList.remove("correct-answer", "selected-wrong");
+          });
+
+          const correctInput = question.querySelector(
+            'input[value="' + correctValue + '"]'
+          );
+
+          if (correctInput) {
+            correctInput
+              .closest(".quiz-option")
+              .classList.add("correct-answer");
+          }
+
+          if (!selected) {
+            feedback.textContent =
+              "Not answered. Review this item, choose an answer, and check again. " +
+              explanation;
+            feedback.className = "quiz-feedback incorrect";
+            return;
+          }
+
+          answered += 1;
+
+          if (selected.value === correctValue) {
+            score += 1;
+            feedback.textContent = "Correct. " + explanation;
+            feedback.className = "quiz-feedback correct";
+          } else {
+            selected
+              .closest(".quiz-option")
+              .classList.add("selected-wrong");
+            feedback.textContent = "Not quite. " + explanation;
+            feedback.className = "quiz-feedback incorrect";
+          }
+        });
+
+        const total = questions.length;
+        let message =
+          "Score: " + score + " out of " + total + ". ";
+
+        if (answered < total) {
+          message +=
+            "You answered " + answered + " of " + total +
+            " questions. Complete the unanswered items and check again.";
+        } else if (score === total) {
+          message +=
+            "Excellent retrieval. Retake the quiz tomorrow without reviewing first.";
+        } else if (score >= Math.ceil(total * 0.75)) {
+          message +=
+            "Strong result. Review the explanations you missed, then retake the quiz tomorrow.";
+        } else {
+          message +=
+            "Review the article and the feedback, then try again from memory.";
+        }
+
+        result.textContent = message;
+        result.classList.add("visible");
+        result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+
+      resetButton.addEventListener("click", function () {
+        form.reset();
+
+        questions.forEach(function (question) {
+          question.querySelectorAll(".quiz-option").forEach(function (option) {
+            option.classList.remove("correct-answer", "selected-wrong");
+          });
+
+          const feedback = question.querySelector("[data-feedback]");
+          feedback.textContent = "";
+          feedback.className = "quiz-feedback";
+        });
+
+        result.textContent = "";
+        result.classList.remove("visible");
+      });
+    });
+  </script>
 </body>
 </html>
