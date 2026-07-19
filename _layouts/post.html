@@ -1,0 +1,93 @@
+---
+layout: default
+---
+
+<article class="article-shell">
+  <header class="article-header">
+    {% if page.topic %}
+      <p class="eyebrow">{{ page.topic }}</p>
+    {% endif %}
+
+    <h1>{{ page.title }}</h1>
+
+    {% if page.summary %}
+      <p class="page-intro">{{ page.summary }}</p>
+    {% endif %}
+  </header>
+
+  <div class="article-content">
+    {{ content }}
+  </div>
+
+  {% if page.resources %}
+    <section class="resource-section" aria-labelledby="resource-heading">
+      <h2 id="resource-heading">Learning resources</h2>
+
+      <div class="resource-list">
+        {% for resource in page.resources %}
+          <article class="resource-card">
+            <div class="resource-details">
+              {% if resource.type %}
+                <p class="resource-type">{{ resource.type }}</p>
+              {% endif %}
+
+              <h3>{{ resource.title }}</h3>
+
+              {% if resource.description %}
+                <p>{{ resource.description }}</p>
+              {% endif %}
+            </div>
+
+            <div class="resource-actions">
+              {% if resource.open %}
+                <a class="primary-button"
+                   href="{{ resource.file | relative_url }}"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  Open {{ resource.type }}
+                </a>
+              {% endif %}
+
+              <a class="secondary-button"
+                 href="{{ resource.file | relative_url }}"
+                 download>
+                Download {{ resource.type }}
+              </a>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  {% if page.quiz %}
+    <section class="article-quiz-section" aria-labelledby="quiz-heading">
+      <h2 id="quiz-heading">Check your understanding</h2>
+
+      <div class="quiz" data-answer="{{ page.quiz.answer | escape }}">
+        <p class="quiz-question">{{ page.quiz.question }}</p>
+
+        <div class="quiz-choices">
+          {% for choice in page.quiz.choices %}
+            <button type="button"
+                    data-choice="{{ choice.id | escape }}">
+              {{ choice.text }}
+            </button>
+          {% endfor %}
+        </div>
+
+        <p class="quiz-feedback" aria-live="polite">
+          Choose an answer.
+        </p>
+      </div>
+    </section>
+  {% endif %}
+
+  {% if page.topic_url %}
+    <p class="article-back-link">
+      <a href="{{ page.topic_url | relative_url }}">
+        &larr; Return to the topic page
+      </a>
+    </p>
+  {% endif %}
+</article>

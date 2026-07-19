@@ -1,0 +1,31 @@
+title: Shalauddin
+description: Personal academic website for Shalauddin
+url: "https://shalauddin.com"
+baseurl: ""
+timezone: America/Chicago
+
+markdown: kramdown
+
+collections:
+  learning:
+    output: true
+    permalink: /learning/:name/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: learning
+    values:
+      layout: post
+
+
+exclude:
+  - _legacy-html
+  - _templates
+  - Gemfile
+  - Gemfile.lock
+  - README.md
