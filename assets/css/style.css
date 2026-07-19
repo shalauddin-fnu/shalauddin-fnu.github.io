@@ -1067,3 +1067,89 @@ th {
 }
 
 
+/* Photography and videos page */
+
+.hobby-section {
+  margin-bottom: 48px;
+}
+
+.hobby-section > p {
+  max-width: 850px;
+  margin-bottom: 28px;
+}
+
+.hobby-video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.hobby-video-card {
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #d6e1ee;
+  border-radius: 22px;
+  box-shadow: 0 14px 34px rgba(7, 21, 47, 0.06);
+}
+
+.hobby-video-placeholder {
+  display: grid;
+  min-height: 230px;
+  place-items: center;
+  padding: 28px;
+  color: #ffffff;
+  background:
+    linear-gradient(135deg, rgba(7, 21, 47, 0.94), rgba(8, 145, 178, 0.86));
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.hobby-video-content {
+  padding: 26px;
+}
+
+.hobby-video-content h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.hobby-video-content p {
+  margin-bottom: 22px;
+}
+
+.hobby-video-content .primary-button {
+  display: inline-flex;
+}
+
+@media (max-width: 760px) {
+  .hobby-video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hobby-video-placeholder {
+    min-height: 190px;
+  }
+
+  .hobby-video-content {
+    padding: 22px;
+  }
+}
+
+.hobby-video-thumbnail {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #07152f;
+  transition: transform 0.25s ease;
+}
+
+.hobby-video-card > a {
+  display: block;
+  overflow: hidden;
+}
+
+.hobby-video-card > a:hover .hobby-video-thumbnail {
+  transform: scale(1.03);
+}
